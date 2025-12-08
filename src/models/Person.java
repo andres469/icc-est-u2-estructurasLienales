@@ -22,5 +22,17 @@ public class Person {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Person{");
+        sb.append("name=").append(name);
+        sb.append(", age=").append(age);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+
+
     
 }
