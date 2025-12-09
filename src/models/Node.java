@@ -36,16 +36,12 @@ public class Node <T>{
     }
 @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Node{");
-        sb.append("value=").append(value);
-        
-        // **CORRECCIÓN:** Se imprime el código hash o "null" para romper el ciclo de recursión.
-        sb.append(", next=").append(next != null ? "Node@" + Integer.toHexString(next.hashCode()) : "null");
-        sb.append(", prev=").append(prev != null ? "Node@" + Integer.toHexString(prev.hashCode()) : "null");
-        
-        sb.append('}');
-        return sb.toString();
+        // Esta línea es la clave para evitar el StackOverflowError
+        return "Node{" +
+               "value=" + value +
+               ", next=" + (next != null ? "Node@" + Integer.toHexString(next.hashCode()) : "null") +
+               ", prev=" + (prev != null ? "Node@" + Integer.toHexString(prev.hashCode()) : "null") +
+               '}';
     }
     
     
