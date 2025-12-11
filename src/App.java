@@ -1,3 +1,8 @@
+import java.util.List;
+
+import controllers.ListaEnlazada;
+import controllers.Queue;
+
 import controllers.Stack;
 import models.Node;
 import models.Person;
@@ -11,17 +16,26 @@ public class App {
         Node<Person> node2 = new Node<Person>(new Person("Maria", 35));
         Node<Person> node3 = new Node<Person>(new Person("pepito", 33));
         Node<Person> node4 = new Node<Person>(new Person("diego", 39));
-
-        Stack<Person> persons=new Stack<Person>();
-        persons.push(new Person("Juan", 30));
-        persons.push(new Person("Maria", 35));
-        persons.push(new Person("Pepito", 32));
-        persons.push(new Person("Diego", 31));
+        Person personaA=new Person("Ana", 28);
+        Person personaB=new Person("Ana", 28);
+       // Stack<Person> persons=new Stack<Person>();
+        //Queue<Person> persons=new Queue<Person>();
+        ListaEnlazada<Person> persons=new ListaEnlazada<Person>();
+        persons.append(new Person("Juan", 30));
+        persons.append(new Person("Maria", 35));
+        persons.append(new Person("Pepito", 32));
+        persons.append(new Person("Diego", 31));
         System.out.println("Tamaño del stack: " + persons.size());
         persons.printAllNodes();
-        System.out.println(persons.pop());
-        System.out.println("Sise= "+ persons.size());
+       // System.out.println(persons.dequeue());
+        persons.deleteNode(new Person("Pepito", 32));
+         persons.printAllNodes();
+        persons.deleteFirst();
         persons.printAllNodes();
+        persons.deleteLast();
+        persons.printAllNodes();
+        System.out.println("Size=" + persons.size());
+
 
         // node1.setNext(node2);
         // node2.setNext(node3);

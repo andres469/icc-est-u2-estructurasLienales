@@ -31,6 +31,25 @@ public class Person {
         sb.append('}');
         return sb.toString();
     }
+
+    public boolean equals(Object obj) {
+        if (this == obj) 
+            return true;
+        if (obj == null || getClass() != obj.getClass()) 
+            return false;
+        Person person = (Person) obj;
+        if (name==null) {
+            if (person.name!=null) {
+                return false;
+            }
+        }else if (!name.equals(person.name)) {
+            return false;
+        }
+        if (age!=person.age) {
+            return false;
+        }
+        return true;
+    }
     
 
 
